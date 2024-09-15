@@ -1,0 +1,12 @@
+<div
+  class="min-w-screen min-h-screen flex flex-col bg-card text-foreground px-5"
+>
+  <app-navbar />
+  <app-sidebar />
+  <div
+    class="min-h-[calc(100vh-100px)] mt-[100px] transition-all duration-300 p-5"
+    [ngClass]="isOpenSidebar() ? '2xl:ml-[330px]' : '2xl:ml-0'"
+  >
+    <router-outlet />
+  </div>
+</div>
