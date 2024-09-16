@@ -1,0 +1,181 @@
+<div
+  class="relative flex flex-col w-full h-full overflow-auto shadow-md rounded-lg bg-clip-border z-10 max-h-[600px]"
+>
+  <table class="w-full text-left table-auto min-w-max">
+    <thead class="sticky top-0">
+      <tr>
+        @for (item of tableHeaders(); track item) {
+        <th
+          class="h-[40px] border-b border-border bg-primary/90 text-primary-foreground"
+        >
+          <p class="block text-sm font-bold leading-none p-[3px]">{{ item }}</p>
+        </th>
+        }
+      </tr>
+    </thead>
+    <tbody class="bg-background text-foreground">
+      @for (item of data(); track item.objectCode; let odd = $odd) {
+      <tr [ngClass]="odd ? '' : ''">
+        <td
+          class="border-b border-dashed h-[45px] w-[250px] border-border hover:bg-primary/5"
+        >
+          <p class="block text-sm h-full w-full p-[3px]">
+            {{ item.objectCode }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.resourceSummary | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_a_g < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_a_g | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_ap < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_ap | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_attnd < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_attnd | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_case < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_case | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_cs_ap < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_cs_ap | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_csm < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_csm | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_eld < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_eld | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_gc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_gc | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_lnc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_lnc | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_lre < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_lre | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_ppl < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_ppl | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_teach < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_teach | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_ck < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_ck | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_couns < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_couns | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_cts < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_cts | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_lsa < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_lsa | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_newc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_newc | currency }}
+          </p>
+        </td>
+        <td
+          class="border-b border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_newc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_newc | currency }}
+          </p>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

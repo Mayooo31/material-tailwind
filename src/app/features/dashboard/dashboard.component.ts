@@ -1,11 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-
-interface Tab {
-  title: string;
-  content: string;
-  contentText: string;
-}
+import { Component, signal } from '@angular/core';
+import { InProgressComponent } from './in-progress/in-progress.component';
+import { NonSalaryCostsComponent } from './non-salary-costs/non-salary-costs.component';
+import { SiteInformationComponent } from './site-information/site-information.component';
+import { CertificatedStaffSubjectsComponent } from './certificated-staff-subjects/certificated-staff-subjects.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,28 +13,30 @@ interface Tab {
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
-  tabs: Tab[] = [
+  selectedCategory = signal(1);
+  categories = [
+    { label: 'Site Information', component: SiteInformationComponent },
+    { label: 'Allocations', component: InProgressComponent },
     {
-      title: 'Dashboard',
-      content: 'dashboard',
-      contentText:
-        "Because it's about motivating the doers. Because I'm here to follow my dreams and inspire other people to follow their dreams, too.",
+      label: 'SPSA Executive Summary and Attachments',
+      component: InProgressComponent,
     },
     {
-      title: 'Profile',
-      content: 'profile',
-      contentText:
-        'The reading of all good books is like a conversation with the finest minds of past centuries.',
+      label: 'Site Goals, Actions and Costs',
+      component: InProgressComponent,
     },
+    { label: 'FTE Requirements', component: InProgressComponent },
     {
-      title: 'Settings',
-      content: 'settings',
-      contentText: 'Comparing yourself to others is the thief of joy.',
+      label: 'Certificated Staff Subjects',
+      component: CertificatedStaffSubjectsComponent,
     },
+    { label: 'Salaried Costs', component: InProgressComponent },
+    { label: 'Non-Salary Costs', component: NonSalaryCostsComponent },
+    { label: 'Summary', component: InProgressComponent },
+    { label: 'Signature', component: InProgressComponent },
   ];
-  selectedTab: number = 0;
 
-  selectTab(index: number): void {
-    this.selectedTab = index;
+  changeCategory(index: number) {
+    this.selectedCategory.set(index);
   }
 }

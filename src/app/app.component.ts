@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ThemeService } from './core/services/theme.service';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,8 @@ import { ThemeService } from './core/services/theme.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'material-tailwind';
-  themeService = inject(ThemeService);
-
-  toggleThemeColor() {
-    this.themeService.theme.update((theme) => {
-      return { ...theme, color: 'red' };
-    });
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+    initFlowbite();
   }
 }

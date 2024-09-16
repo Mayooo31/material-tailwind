@@ -1,80 +1,28 @@
-<div class="lg:max-w-[85%] lg:m-auto">
-  <!-- <div class="w-full">
-    <div class="relative right-0">
-      <ul
-        class="relative flex flex-wrap px-1.5 py-1.5 list-none rounded-md bg-slate-100"
-        data-tabs="tabs"
-        role="list"
+<div
+  class="lg:max-w-[1200px] lg:m-auto bg-background p-5 md:p-10 md:pt-5 rounded-lg"
+>
+  <ul
+    class="relative flex justify-around flex-wrap gap-5 font-semibold text-sm mb-10"
+  >
+    @for (category of categories; track category.label; let index = $index) {
+    <li class="flex-1">
+      <button
+        (click)="changeCategory(index + 1)"
+        data-ripple-light="true"
+        class="whitespace-nowrap px-2 md:px-8 py-3 rounded-lg w-full"
+        [ngClass]="
+          selectedCategory() === index + 1
+            ? 'bg-primary text-primary-foreground'
+            : ' bg-card text-muted-foreground'
+        "
       >
-        <li class="z-30 flex-auto text-center">
-          <a
-            class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-md cursor-pointer text-slate-600 bg-inherit"
-            data-tab-target="dashboard"
-            role="tab"
-            aria-selected="true"
-            aria-controls="dashboard"
-          >
-            Dashboard
-          </a>
-        </li>
-        <li class="z-30 flex-auto text-center">
-          <a
-            class="z-30 flex items-center justify-center w-full px-0 py-2 mb-0 text-sm transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-600 bg-inherit"
-            data-tab-target=""
-            role="tab"
-            aria-selected="false"
-            aria-controls="profile"
-          >
-            Profile
-          </a>
-        </li>
-        <li class="z-30 flex-auto text-center">
-          <a
-            class="z-30 flex items-center justify-center w-full px-0 py-2 text-sm mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer text-slate-700 bg-inherit"
-            data-tab-target=""
-            role="tab"
-            aria-selected="false"
-            aria-controls="settings"
-          >
-            Settings
-          </a>
-        </li>
-      </ul>
+        {{ category.label }}
+      </button>
+    </li>
+    }
+  </ul>
 
-      <div data-tab-content="" class="p-5">
-        <div id="dashboard" role="tabpanel">
-          <p class="text-slate-400 font-light">
-            Because it&apos;s about motivating the doers. Because I&apos;m here
-            to follow my dreams and inspire other people to follow their dreams,
-            too.
-          </p>
-        </div>
-        <div class="hidden opacity-0" id="profile" role="tabpanel">
-          <p class="text-slate-400 font-light">
-            The reading of all good books is like a conversation with the finest
-            minds of past centuries.
-          </p>
-        </div>
-        <div class="hidden opacity-0" id="settings" role="tabpanel">
-          <p class="text-slate-400 font-light">
-            Comparing yourself to others is the thief of joy.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <button
-    data-ripple-light="true"
-    data-popover-target="popover"
-    class="select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-  >
-    Show Popover
-  </button>
-  <div
-    data-popover="popover"
-    class="absolute p-4 font-sans text-sm font-normal break-words whitespace-normal bg-white border rounded-lg shadow-lg w-max border-blue-gray-50 text-blue-gray-500 shadow-blue-gray-500/10 focus:outline-none"
-  >
-    This is a very beautiful popover, show some love.
-  </div>
+  <ng-container
+    *ngComponentOutlet="categories[selectedCategory() - 1].component"
+  ></ng-container>
 </div>

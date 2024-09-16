@@ -1,0 +1,49 @@
+<div
+  class="relative flex flex-col my-6 bg-card text-foreground shadow-sm rounded-lg w-full border border-border font-semibold p-4"
+>
+  <h1 class="text-xl">Fremont High School (302)</h1>
+  <p class="leading-normal text-muted-foreground mb-5">
+    Grades: <span class="text-foreground">9-12</span>
+  </p>
+  <div class="flex flex-col gap-2">
+    <p class="leading-normal text-muted-foreground">
+      Address:
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=4610+Foothill+Boulevard,+Oakland,+CA"
+        target="_blank"
+        class="text-primary"
+      >
+        4610 Foothill Boulevard, Oakland, CA
+      </a>
+    </p>
+    <p class="leading-normal text-muted-foreground">
+      Phone:
+      <a href="tel: (510) 879-5570" class="text-primary">(510) 879-5570</a>
+    </p>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+  @for (item of data(); track item.name) {
+  <div
+    class="relative flex flex-col bg-card text-foreground shadow-sm rounded-lg text-sm p-4 font-semibold border border-dashed border-muted-foreground"
+  >
+    <h5 class="text-xl">{{ item.name }}</h5>
+    <p class="leading-normal mb-5 text-muted-foreground">
+      {{ item.title }}
+    </p>
+    <div class="flex flex-col gap-2">
+      <p class="leading-normal text-muted-foreground">
+        Email:
+        <a href="mailto:{{ item.email }}" class="text-primary">{{
+          item.email
+        }}</a>
+      </p>
+      <p class="leading-normal text-muted-foreground">
+        Phone:
+        <a href="tel:{{ item.phone }}" class="text-primary">{{ item.phone }}</a>
+      </p>
+    </div>
+  </div>
+  }
+</div>

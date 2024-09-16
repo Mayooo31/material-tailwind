@@ -1,0 +1,56 @@
+<div>
+  <div class="mb-4 border-b border-muted-foreground">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-semibold text-center"
+      id="default-styled-tab"
+      data-tabs-toggle="#default-styled-tab-content"
+      data-tabs-active-classes="text-primary border-primary"
+      data-tabs-inactive-classes="border-transparent text-muted-foreground hover:text-foreground hover:border-primary/90"
+      role="tablist"
+    >
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="site-support-information-styled-tab"
+          data-tabs-target="#styled-site-support-information"
+          type="button"
+          role="tab"
+          aria-controls="site-support-information"
+          aria-selected="false"
+        >
+          Site Support Information
+        </button>
+      </li>
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="site-council-styled-tab"
+          data-tabs-target="#styled-site-council"
+          type="button"
+          role="tab"
+          aria-controls="site-council"
+          aria-selected="false"
+        >
+          Site Council
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="default-styled-tab-content">
+    <div
+      id="styled-site-support-information"
+      role="tabpanel"
+      aria-labelledby="site-support-information-styled-tab"
+    >
+      <app-site-support-information />
+    </div>
+    <div
+      id="styled-site-council"
+      role="tabpanel"
+      aria-labelledby="site-council-styled-tab"
+    >
+      <app-in-progress />
+    </div>
+  </div>
+</div>

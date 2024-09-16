@@ -1,11 +1,13 @@
-<div class="lg:max-w-[85%] lg:m-auto">
+<div
+  class="lg:max-w-[1200px] lg:m-auto bg-background p-5 md:p-10 md:pt-5 rounded-lg"
+>
   <h3 class="text-lg font-semibold text-foreground">Salary Cost</h3>
   <div
     class="flex flex-col sm:flex-row sm:items-center justify-between items-left gap-5 mb-3"
   >
     <p class="font-semibold text-muted-foreground">Salary cost data:</p>
     <div
-      class="w-full max-w-[200px] sm:max-w-[310px] min-w-[200px] sm:flex gap-2 items-center justify-end"
+      class="w-full max-w-[200px] sm:max-w-[320px] min-w-[200px] sm:flex gap-2 items-center justify-end"
     >
       <label class="block text-sm font-semibold text-muted-foreground">
         Select Location:
@@ -13,7 +15,7 @@
 
       <div class="relative">
         <select
-          class="w-full bg-transparent placeholder:text-muted-foreground text-muted-foreground text-sm border-2 border-primary/80 rounded-md pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none hover:border-primary shadow-sm focus:shadow-md appearance-none cursor-pointer font-semibold"
+          class="w-min bg-transparent placeholder:text-muted-foreground text-muted-foreground text-sm border-2 border-primary/80 rounded-md pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none hover:border-primary focus:border-primary shadow-sm focus:shadow-md appearance-none cursor-pointer font-semibold"
         >
           <option class="bg-card font-semibold" value="fremont Hhgh school">
             Fremont High School
@@ -28,20 +30,6 @@
             Fremont High School
           </option>
         </select>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.2"
-          stroke="currentColor"
-          class="h-5 w-5 ml-1 absolute top-2.5 right-2.5 text-slate-700"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
-          />
-        </svg>
       </div>
     </div>
   </div>
@@ -53,7 +41,7 @@
         <tr>
           @for (item of tableHeaders(); track item) {
           <th
-            class="p-4 border-b border-foreground bg-primary/90 text-primary-foreground"
+            class="p-4 border-b border-dashed border-border bg-primary/90 text-primary-foreground"
           >
             <p class="block text-sm font-bold leading-none">{{ item }}</p>
           </th>
@@ -62,62 +50,62 @@
       </thead>
       <tbody class="bg-background text-foreground">
         @for (item of data(); track item.employeeNumber; let odd = $odd) {
-        <tr class="hover:bg-primary/5" [ngClass]="odd ? 'bg-card/90' : ''">
-          <td class="p-4 border-b border-muted-foreground">
+        <tr class="hover:bg-primary/5" [ngClass]="odd ? '' : ''">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.employeeName }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.employeeNumber }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.PCN }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.jobcodeName }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.fteused }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.fteauthorized }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.dayscnt }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.postypeid }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.bargainunitid }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.calendarid }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.salaryschedid }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.salarytimeunit }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.salaryschedcellid }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.annualSalary }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.totalAddons }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.totalContributions }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.totalBenefits }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.totalCost }}</p>
           </td>
-          <td class="p-4 border-b border-muted-foreground">
+          <td class="p-4 border-b border-dashed border-border">
             <p class="block text-sm">{{ item.numberOfMonths }}</p>
           </td>
         </tr>

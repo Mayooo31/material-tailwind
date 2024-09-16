@@ -1,0 +1,122 @@
+<button
+  data-modal-target="default-modal"
+  data-modal-toggle="default-modal"
+  class="text-primary-foreground bg-primary font-semibold focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center"
+  type="button"
+>
+  Toggle modal
+</button>
+
+<div
+  id="default-modal"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-auto fixed top-0 right-0 left-0 z-[200] justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative p-4 w-full max-w-[1200px]">
+    <!-- Modal content -->
+    <div class="relative bg-background text-foreground rounded-lg shadow">
+      <!-- Modal header -->
+      <div class="flex items-center justify-between p-4 md:p-5 rounded-t">
+        <h3 class="text-xl font-semibold text-foreground">
+          Edit Position FTE for: Asst Principal, High School
+        </h3>
+        <button
+          type="button"
+          class="text-foreground rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+          data-modal-hide="default-modal"
+        >
+          <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-4 md:p-5 space-y-4 min-h-[250px] overflow-auto">
+        <div>
+          <div class="mb-4 border-b border-muted-foreground">
+            <ul
+              class="flex flex-wrap -mb-px text-sm font-semibold text-center"
+              id="default-styled-tab"
+              data-tabs-toggle="#default-styled-tab-content"
+              data-tabs-active-classes="text-primary border-primary"
+              data-tabs-inactive-classes="border-transparent text-muted-foreground hover:text-foreground hover:border-primary/90"
+              role="tablist"
+            >
+              <li class="me-2 flex-grow" role="presentation">
+                <button
+                  class="inline-block p-4 border-b-2 rounded-t-lg w-full"
+                  id="employee-list-styled-tab"
+                  data-tabs-target="#styled-employee-list"
+                  type="button"
+                  role="tab"
+                  aria-controls="employee-list"
+                  aria-selected="false"
+                >
+                  Employee List
+                </button>
+              </li>
+
+              <li class="me-2 flex-grow" role="presentation">
+                <button
+                  class="inline-block p-4 border-b-2 rounded-t-lg w-full"
+                  id="add-new-position-styled-tab"
+                  data-tabs-target="#styled-add-new-position"
+                  type="button"
+                  role="tab"
+                  aria-controls="add-new-position"
+                  aria-selected="false"
+                >
+                  Add New Position
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="default-styled-tab-content">
+            <!-- Employee List Content -->
+            <div
+              id="styled-employee-list"
+              role="tabpanel"
+              aria-labelledby="employee-list-styled-tab"
+            >
+              <app-employee-list />
+            </div>
+
+            <!-- Add New Position Content -->
+            <div
+              id="styled-add-new-position"
+              role="tabpanel"
+              aria-labelledby="add-new-position-styled-tab"
+            >
+              <app-in-progress />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="flex items-center p-4 md:p-5 rounded-b">
+        <button
+          data-modal-hide="default-modal"
+          type="button"
+          class="text-primary-foreground bg-primary font-semibold focus:outline-none rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

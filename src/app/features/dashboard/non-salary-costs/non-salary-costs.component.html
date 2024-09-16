@@ -1,0 +1,314 @@
+<div
+  class="relative flex flex-col w-full h-full overflow-auto shadow-md rounded-lg bg-clip-border z-10 max-h-[600px]"
+>
+  <table class="w-full text-left table-auto min-w-max">
+    <thead class="sticky top-0">
+      <tr>
+        @for (item of tableHeaders(); track item) {
+        <th
+          class="h-[40px] border-b border-border bg-primary/90 text-primary-foreground"
+        >
+          <p class="block text-sm font-bold leading-none p-[3px]">{{ item }}</p>
+        </th>
+        }
+      </tr>
+    </thead>
+    <tbody class="bg-background text-foreground">
+      @for (item of data(); track item.category; let odd = $odd) {
+      <tr [ngClass]="odd ? '' : ''">
+        <td
+          class="border-b border-dashed h-[45px] w-[200px] border-border hover:bg-primary/5"
+        >
+          <p class="block text-sm h-full w-full p-[3px]">
+            {{ item.category }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.summary | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_a_g < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_a_g | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_ap < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_ap | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_attnd < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_attnd | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_case < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_case | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_cs_ap < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_cs_ap | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_csm < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_csm | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_eld < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_eld | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_gc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_gc | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_lnc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_lnc | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_lre < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_lre | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_ppl < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_ppl | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.base_teach < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.base_teach | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_ck < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_ck | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_couns < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_couns | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_cts < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_cts | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_lsa < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_lsa | currency }}
+          </p>
+        </td>
+        <td
+          class="border border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_newc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_newc | currency }}
+          </p>
+        </td>
+        <td
+          class="border-b border-dashed h-[45px] w-[120px] border-border hover:bg-primary/5"
+          [ngClass]="+item.cen_newc < 0 ? 'text-red-400' : ''"
+        >
+          <p class="block text-sm h-full w-full text-end p-[3px]">
+            {{ item.cen_newc | currency }}
+          </p>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <div class="mb-4 border-b border-muted-foreground">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-semibold text-center"
+      id="default-styled-tab"
+      data-tabs-toggle="#default-styled-tab-content"
+      data-tabs-active-classes="text-primary border-primary"
+      data-tabs-inactive-classes="border-transparent text-muted-foreground hover:text-foreground hover:border-primary/90"
+      role="tablist"
+    >
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="certificated-salaries-styled-tab"
+          data-tabs-target="#styled-certificated-salaries"
+          type="button"
+          role="tab"
+          aria-controls="certificated-salaries"
+          aria-selected="false"
+        >
+          Certificated Salaries
+        </button>
+      </li>
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="classified-salaries-styled-tab"
+          data-tabs-target="#styled-classified-salaries"
+          type="button"
+          role="tab"
+          aria-controls="classified-salaries"
+          aria-selected="false"
+        >
+          Classified Salaries
+        </button>
+      </li>
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="employee-benefits-styled-tab"
+          data-tabs-target="#styled-employee-benefits"
+          type="button"
+          role="tab"
+          aria-controls="employee-benefits"
+          aria-selected="false"
+        >
+          Employee Benefits
+        </button>
+      </li>
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="books-supplies-styled-tab"
+          data-tabs-target="#styled-books-supplies"
+          type="button"
+          role="tab"
+          aria-controls="books-supplies"
+          aria-selected="false"
+        >
+          Books & Supplies
+        </button>
+      </li>
+      <li class="me-2" role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="services-styled-tab"
+          data-tabs-target="#styled-services"
+          type="button"
+          role="tab"
+          aria-controls="services"
+          aria-selected="false"
+        >
+          Services
+        </button>
+      </li>
+      <li role="presentation">
+        <button
+          class="inline-block p-4 border-b-2 rounded-t-lg"
+          id="capital-outlay-styled-tab"
+          data-tabs-target="#styled-capital-outlay"
+          type="button"
+          role="tab"
+          aria-controls="capital-outlay"
+          aria-selected="false"
+        >
+          Capital Outlay
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="default-styled-tab-content">
+    <div
+      id="styled-certificated-salaries"
+      role="tabpanel"
+      aria-labelledby="certificated-salaries-tab"
+    >
+      <app-certificated-salaries />
+    </div>
+    <div
+      id="styled-classified-salaries"
+      role="tabpanel"
+      aria-labelledby="classified-salaries-tab"
+    >
+      <app-in-progress />
+    </div>
+    <div
+      id="styled-employee-benefits"
+      role="tabpanel"
+      aria-labelledby="employee-benefits-tab"
+    >
+      <app-in-progress />
+    </div>
+    <div
+      id="styled-books-supplies"
+      role="tabpanel"
+      aria-labelledby="books-supplies-tab"
+    >
+      <app-in-progress />
+    </div>
+    <div id="styled-services" role="tabpanel" aria-labelledby="services-tab">
+      <app-in-progress />
+    </div>
+    <div
+      id="styled-capital-outlay"
+      role="tabpanel"
+      aria-labelledby="capital-outlay-tab"
+    >
+      <app-in-progress />
+    </div>
+  </div>
+</div>
