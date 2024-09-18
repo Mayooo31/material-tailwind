@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, effect, HostListener, inject } from '@angular/core';
 import { SidebarService } from '../../../core/services/sidebar.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CloseSidebarDirective } from '../../../core/directives/close-sidebar.directive';
@@ -20,6 +20,11 @@ export class SidebarComponent {
     this.sidebarService.checkScreenWidth();
   }
 
+  hola = effect(() => {
+    console.log(this.collapseSidebar());
+    console.log(this.isOpenSidebar());
+  });
+
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     this.sidebarService.checkScreenWidth();
@@ -30,6 +35,7 @@ export class SidebarComponent {
   }
 
   @HostListener('mouseleave') onMouseLeave() {
+    console.log('Mouse leave detected');
     this.sidebarService.closeSidebar();
   }
 }

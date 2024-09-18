@@ -1,9 +1,9 @@
 <div
-  class="fixed left-5 top-[100px] flex h-[calc(100vh-110px)] w-full max-w-[20rem] flex-col rounded-xl bg-clip-border shadow-custom lg:top-0 lg:h-screen lg:left-0 transition-all duration-300 ease-in-out bg-background text-foreground z-30 p-[6px] overflow-hidden"
+  class="fixed left-5 top-[100px] flex h-[calc(100vh-110px)] w-[20rem] flex-col rounded-xl bg-clip-border shadow-custom lg:top-0 lg:h-screen lg:left-0 transition-all duration-300 bg-background text-foreground z-30 p-[6px] overflow-hidden"
   [ngClass]="{
-    'translate-x-[0%]': isOpenSidebar(),
+    'translate-x-0': isOpenSidebar(),
     '-translate-x-[120%]': !isOpenSidebar() && !collapseSidebar(),
-    'w-[70px]': collapseSidebar() && !isOpenSidebar(),
+    '!w-[70px]': collapseSidebar() && !isOpenSidebar(),
     'lg:w-[320px]': !collapseSidebar() && isOpenSidebar()
   }"
 >
@@ -11,12 +11,13 @@
     <span class="material-symbols-outlined text-primary mr-[6px]">
       insert_chart
     </span>
+    @if (collapseSidebar() && isOpenSidebar()) {
     <h5
-      [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
       class="block font-sans text-xl antialiased leading-snug tracking-normal text-primary font-bold overflow-hidden"
     >
       Budget Developer
     </h5>
+    }
   </div>
   <nav
     class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal"
@@ -45,16 +46,13 @@
               ></path>
             </svg>
           </div>
+          @if (collapseSidebar() && isOpenSidebar()) {
           <p
-            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
             class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
             Admin Section
           </p>
-          <span
-            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
-            class="ml-4"
-          >
+          <span class="ml-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -71,6 +69,7 @@
               ></path>
             </svg>
           </span>
+          }
         </button>
       </div>
     </div>
@@ -86,16 +85,13 @@
           <div class="grid mr-4 place-items-center">
             <span class="material-symbols-outlined w-5"> database </span>
           </div>
+          @if (collapseSidebar() && isOpenSidebar()) {
           <p
-            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
             class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
             Data Check
           </p>
-          <span
-            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
-            class="ml-4"
-          >
+          <span class="ml-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -110,14 +106,12 @@
                 stroke-linejoin="round"
                 d="M19.5 8.25l-7.5 7.5-7.5-7.5"
               ></path>
-            </svg>
-          </span>
+            </svg> </span
+          >}
         </button>
       </div>
-      <div
-        [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
-        class="overflow-hidden"
-      >
+      @if (collapseSidebar() && isOpenSidebar()) {
+      <div class="overflow-hidden">
         <div
           class="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700"
         >
@@ -262,6 +256,7 @@
           </nav>
         </div>
       </div>
+      }
     </div>
     <div
       role="button"
@@ -274,16 +269,13 @@
         <div class="grid mr-4 place-items-center">
           <span class="material-symbols-outlined w-5"> automation </span>
         </div>
+        @if (collapseSidebar() && isOpenSidebar()) {
         <p
-          [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
           class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
         >
           Wizard
         </p>
-        <span
-          [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
-          class="ml-4"
-        >
+        <span class="ml-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -298,8 +290,8 @@
               stroke-linejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5"
             ></path>
-          </svg>
-        </span>
+          </svg> </span
+        >}
       </button>
     </div>
   </nav>
