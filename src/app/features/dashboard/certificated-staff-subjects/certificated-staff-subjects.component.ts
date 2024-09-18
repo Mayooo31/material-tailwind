@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { initFlowbite } from 'flowbite';
-import { InProgressComponent } from '../in-progress/in-progress.component';
-import { EmployeeListComponent } from '../employee-list/employee-list.component';
+
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { InProgressComponent } from '../../../shared/components/in-progress/in-progress.component';
 
 @Component({
   selector: 'app-certificated-staff-subjects',

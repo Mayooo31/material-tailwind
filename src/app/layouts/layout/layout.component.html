@@ -2,8 +2,12 @@
   <app-navbar />
   <app-sidebar />
   <div
-    class="min-h-[calc(100vh-100px)] mt-[100px] transition-all duration-300 px-3 py-5 md:p-5"
-    [ngClass]="isOpenSidebar() ? '2xl:ml-[330px]' : '2xl:ml-0'"
+    class="min-h-[calc(100vh-100px)] mt-[80px] lg:mt-[100px] transition-all duration-300 px-3 py-5 md:p-5"
+    [ngClass]="{
+      '2xl:ml-[330px]': isOpenSidebar(),
+      '2xl:ml-14': !isOpenSidebar(),
+      'ml-24 lg:ml-20': screenWidth() > 600
+    }"
   >
     <router-outlet />
   </div>

@@ -1,8 +1,8 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { initFlowbite } from 'flowbite';
-import { CertificatedSalariesComponent } from '../certificated-salaries/certificated-salaries.component';
-import { InProgressComponent } from '../in-progress/in-progress.component';
+import { CertificatedSalariesComponent } from './components/certificated-salaries/certificated-salaries.component';
+import { InProgressComponent } from '../../../shared/components/in-progress/in-progress.component';
 
 const tableHeaders = [
   '',

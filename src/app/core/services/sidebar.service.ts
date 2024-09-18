@@ -4,14 +4,19 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class SidebarService {
-  isOpenSidebar_ = signal<boolean>(false);
+  private isOpenSidebar_ = signal<boolean>(false);
+  private collapseSidebar_ = signal<boolean>(false);
+
   isOpenSidebar = this.isOpenSidebar_.asReadonly();
+  collapseSidebar = this.collapseSidebar_.asReadonly();
 
   toggleSidebar() {
     this.isOpenSidebar_.update((prevState) => !prevState);
   }
-
-  closeNavbar() {
+  openSidebar() {
+    this.isOpenSidebar_.set(true);
+  }
+  closeSidebar() {
     this.isOpenSidebar_.set(false);
   }
 
@@ -21,5 +26,14 @@ export class SidebarService {
     } else {
       this.isOpenSidebar_.set(false);
     }
+    if (window.innerWidth > 600) {
+      this.collapseSidebar_.set(true);
+    } else {
+      this.collapseSidebar_.set(false);
+    }
+  }
+
+  toggleIsCollapsedSidebar() {
+    this.collapseSidebar_.update((prevState) => !prevState);
   }
 }

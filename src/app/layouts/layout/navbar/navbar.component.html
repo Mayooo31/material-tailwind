@@ -1,9 +1,9 @@
 <nav
-  class="fixed top-5 left-[50%] translate-x-[-50%] lg:translate-x-[0%] w-[95%] px-4 py-2 mx-auto bg-background text-foreground rounded-md lg:py-3 transition-all duration-300 shadow-custom z-30"
+  class="fixed top-5 left-3 right-3 md:left-5 md:right-5 px-4 py-2 mx-auto bg-background text-foreground rounded-md lg:py-3 transition-all duration-300 shadow-custom z-30"
   [ngClass]="
     isOpenSidebar()
-      ? 'lg:left-[330px] lg:right-5 lg:w-[calc(100vw-400px)]'
-      : 'lg:left-0 lg:right-0'
+      ? 'lg:left-[345px] lg:right-5'
+      : 'lg:left-[100px] md:right-5'
   "
 >
   <div class="flex flex-wrap items-center justify-between">

@@ -2,10 +2,10 @@ import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
 import { SidebarService } from '../services/sidebar.service';
 
 @Directive({
-  selector: '[closeNavbar]',
+  selector: '[closeSidebar]',
   standalone: true,
 })
-export class CloseNavbarDirective {
+export class CloseSidebarDirective {
   constructor(
     private sidebarService: SidebarService,
     private el: ElementRef,
@@ -17,7 +17,7 @@ export class CloseNavbarDirective {
     event.preventDefault();
 
     if (window.innerWidth < 1320) {
-      this.sidebarService.closeNavbar();
+      this.sidebarService.closeSidebar();
     }
   }
 }

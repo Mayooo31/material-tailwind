@@ -1,14 +1,19 @@
 <div
-  class="fixed left-5 top-[100px] flex h-[calc(100vh-110px)] w-full lg:w-[320px] max-w-[20rem] flex-col rounded-xl bg-clip-border p-4 shadow-custom lg:top-0 lg:h-screen lg:left-0 transition-transform duration-300 bg-background text-foreground z-30"
+  class="fixed left-5 top-[100px] flex h-[calc(100vh-110px)] w-full max-w-[20rem] flex-col rounded-xl bg-clip-border shadow-custom lg:top-0 lg:h-screen lg:left-0 transition-all duration-300 ease-in-out bg-background text-foreground z-30 p-[6px] overflow-hidden"
   [ngClass]="{
     'translate-x-[0%]': isOpenSidebar(),
-    '-translate-x-[120%]': !isOpenSidebar()
+    '-translate-x-[120%]': !isOpenSidebar() && !collapseSidebar(),
+    'w-[70px]': collapseSidebar() && !isOpenSidebar(),
+    'lg:w-[320px]': !collapseSidebar() && isOpenSidebar()
   }"
 >
-  <div class="flex gap-2 p-4 mb-2">
-    <span class="material-symbols-outlined text-primary"> insert_chart </span>
+  <div class="flex gap-2 p-4 ml-[2px] h-[60px]">
+    <span class="material-symbols-outlined text-primary mr-[6px]">
+      insert_chart
+    </span>
     <h5
-      class="block font-sans text-xl antialiased leading-snug tracking-normal text-primary font-bold"
+      [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+      class="block font-sans text-xl antialiased leading-snug tracking-normal text-primary font-bold overflow-hidden"
     >
       Budget Developer
     </h5>
@@ -19,7 +24,7 @@
     <div class="relative block w-full">
       <div
         role="button"
-        class="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start focus:bg-opacity-80 active:bg-opacity-80 hover:bg-card text-muted-foreground hover:text-foreground group"
+        class="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start focus:bg-opacity-80 active:bg-opacity-80 hover:bg-card text-muted-foreground hover:text-foreground group h-12"
       >
         <button
           type="button"
@@ -41,11 +46,15 @@
             </svg>
           </div>
           <p
-            class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-semibold transition-all duration"
+            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+            class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
             Admin Section
           </p>
-          <span class="ml-4">
+          <span
+            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+            class="ml-4"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -68,7 +77,7 @@
     <div class="relative block w-full">
       <div
         role="button"
-        class="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start focus:bg-opacity-80 active:bg-opacity-80 hover:bg-card text-muted-foreground hover:text-foreground group"
+        class="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start focus:bg-opacity-80 active:bg-opacity-80 hover:bg-card text-muted-foreground hover:text-foreground group h-12"
       >
         <button
           type="button"
@@ -78,11 +87,15 @@
             <span class="material-symbols-outlined w-5"> database </span>
           </div>
           <p
-            class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-semibold transition-all duration"
+            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+            class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
             Data Check
           </p>
-          <span class="ml-4">
+          <span
+            [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+            class="ml-4"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -101,7 +114,10 @@
           </span>
         </button>
       </div>
-      <div class="overflow-hidden">
+      <div
+        [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+        class="overflow-hidden"
+      >
         <div
           class="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700"
         >
@@ -109,7 +125,7 @@
             class="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700"
           >
             <a
-              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-semibold"
+              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-medium"
             >
               <div class="grid mr-4 place-items-center">
                 <svg
@@ -131,7 +147,7 @@
               Add-ons
             </a>
             <a
-              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-semibold"
+              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-medium"
             >
               <div class="grid mr-4 place-items-center">
                 <svg
@@ -153,7 +169,7 @@
               Contributions
             </a>
             <a
-              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-semibold"
+              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-medium"
             >
               <div class="grid mr-4 place-items-center">
                 <svg
@@ -175,7 +191,7 @@
               Benefits
             </a>
             <a
-              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-semibold"
+              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-medium"
             >
               <div class="grid mr-4 place-items-center">
                 <svg
@@ -197,10 +213,10 @@
               Job Codes
             </a>
             <a
-              closeNavbar
+              closeSidebar
               routerLink="dashboard/salary-cost"
               routerLinkActive="text-primary hover:text-primary"
-              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-semibold"
+              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-medium"
             >
               <div class="grid mr-4 place-items-center">
                 <svg
@@ -222,7 +238,7 @@
               Salary Costs
             </a>
             <a
-              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-semibold"
+              class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-card focus:bg-opacity-80 active:bg-opacity-80 text-muted-foreground hover:text-foreground text-sm font-medium"
             >
               <div class="grid mr-4 place-items-center">
                 <svg
@@ -249,7 +265,7 @@
     </div>
     <div
       role="button"
-      class="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start focus:bg-opacity-80 active:bg-opacity-80 hover:bg-card text-muted-foreground hover:text-foreground group"
+      class="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start focus:bg-opacity-80 active:bg-opacity-80 hover:bg-card text-muted-foreground hover:text-foreground group h-12"
     >
       <button
         type="button"
@@ -259,11 +275,15 @@
           <span class="material-symbols-outlined w-5"> automation </span>
         </div>
         <p
-          class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-semibold transition-all duration"
+          [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+          class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
         >
           Wizard
         </p>
-        <span class="ml-4">
+        <span
+          [ngClass]="collapseSidebar() && !isOpenSidebar() ? 'hidden' : ''"
+          class="ml-4"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { InProgressComponent } from './in-progress/in-progress.component';
+
 import { NonSalaryCostsComponent } from './non-salary-costs/non-salary-costs.component';
 import { SiteInformationComponent } from './site-information/site-information.component';
 import { CertificatedStaffSubjectsComponent } from './certificated-staff-subjects/certificated-staff-subjects.component';
+import { InProgressComponent } from '../../shared/components/in-progress/in-progress.component';
 
 @Component({
   selector: 'app-dashboard',

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { InProgressComponent } from '../in-progress/in-progress.component';
-import { SiteSupportInformationComponent } from '../site-support-information/site-support-information.component';
+import { SiteSupportInformationComponent } from './components/site-support-information/site-support-information.component';
 import { initFlowbite } from 'flowbite';
+import { InProgressComponent } from '../../../shared/components/in-progress/in-progress.component';
 
 @Component({
   selector: 'app-site-information',

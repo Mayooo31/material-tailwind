@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layouts/layout/layout.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { SalaryCostsComponent } from './features/dashboard/salary-costs/salary-costs.component';
 
