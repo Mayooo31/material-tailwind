@@ -11,7 +11,7 @@
     <span class="material-symbols-outlined text-primary mr-[6px]">
       insert_chart
     </span>
-    @if (collapseSidebar() && isOpenSidebar()) {
+    @if (isOpenSidebar()) {
     <h5
       class="block font-sans text-xl antialiased leading-snug tracking-normal text-primary font-bold overflow-hidden"
     >
@@ -46,7 +46,7 @@
               ></path>
             </svg>
           </div>
-          @if (collapseSidebar() && isOpenSidebar()) {
+          @if (isOpenSidebar()) {
           <p
             class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
@@ -85,7 +85,7 @@
           <div class="grid mr-4 place-items-center">
             <span class="material-symbols-outlined w-5"> database </span>
           </div>
-          @if (collapseSidebar() && isOpenSidebar()) {
+          @if (isOpenSidebar()) {
           <p
             class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
@@ -110,7 +110,7 @@
           >}
         </button>
       </div>
-      @if (collapseSidebar() && isOpenSidebar()) {
+      @if (isOpenSidebar()) {
       <div class="overflow-hidden">
         <div
           class="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-700"
@@ -269,7 +269,7 @@
         <div class="grid mr-4 place-items-center">
           <span class="material-symbols-outlined w-5"> automation </span>
         </div>
-        @if (collapseSidebar() && isOpenSidebar()) {
+        @if (isOpenSidebar()) {
         <p
           class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
         >
