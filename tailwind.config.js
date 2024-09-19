@@ -4,6 +4,9 @@ import withMT from "@material-tailwind/html/utils/withMT";
 module.exports = withMT({
   content: ["./src/**/*.{html,ts}", "./node_modules/flowbite/**/*.js"],
   theme: {
+    screens: {
+      cst: "600px",
+    },
     extend: {
       keyframes: {
         wiggle: {

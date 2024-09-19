@@ -15,15 +15,15 @@ export class SidebarComponent {
   private sidebarService = inject(SidebarService);
   isOpenSidebar = this.sidebarService.isOpenSidebar;
   collapseSidebar = this.sidebarService.collapseSidebar;
+  
 
   constructor() {
     this.sidebarService.checkScreenWidth();
   }
 
-  hola = effect(() => {
-    console.log(this.collapseSidebar());
-    console.log(this.isOpenSidebar());
-  });
+  toggleIsCollapsedSidebar() {
+    this.sidebarService.toggleIsCollapsedSidebar();
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
@@ -35,7 +35,6 @@ export class SidebarComponent {
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    console.log('Mouse leave detected');
     this.sidebarService.closeSidebar();
   }
 }

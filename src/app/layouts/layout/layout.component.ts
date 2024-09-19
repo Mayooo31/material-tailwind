@@ -22,8 +22,9 @@ import { InProgressComponent } from '../../shared/components/in-progress/in-prog
   styleUrl: './layout.component.scss',
 })
 export class LayoutComponent {
-  sidebarService = inject(SidebarService);
+  private sidebarService = inject(SidebarService);
   isOpenSidebar = this.sidebarService.isOpenSidebar;
+  collapseSidebar = this.sidebarService.collapseSidebar;
   screenWidth = signal(window.innerWidth);
 
   @HostListener('window:resize', ['$event'])

@@ -26,7 +26,9 @@ export class SidebarService {
     } else {
       this.isOpenSidebar_.set(false);
     }
-    if (window.innerWidth > 600) {
+    if (window.innerWidth > 960) {
+      this.collapseSidebar_.set(false);
+    } else if (window.innerWidth > 600) {
       this.collapseSidebar_.set(true);
     } else {
       this.collapseSidebar_.set(false);
