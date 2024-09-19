@@ -23,7 +23,10 @@
   </div>
 </div>
 
-<div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+<div
+  class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+  [ngClass]="{ '2xl:grid-cols-4': !collapseSidebar() && !isOpenSidebar() }"
+>
   @for (item of data(); track item.name) {
   <div
     class="relative flex flex-col bg-card text-foreground shadow-sm rounded-lg text-sm p-4 font-semibold border border-dashed border-muted-foreground overflow-hidden"

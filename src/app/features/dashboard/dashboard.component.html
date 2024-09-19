@@ -1,6 +1,4 @@
-<div
-  class="lg:max-w-[1200px] lg:m-auto bg-background p-5 md:p-10 md:pt-5 rounded-lg"
->
+<div class="bg-background p-5 md:p-10 md:pt-5 rounded-lg">
   <!-- <ul
     class="relative flex justify-around flex-wrap gap-5 font-semibold text-sm mb-10"
   >
@@ -22,16 +20,16 @@
     }
   </ul> -->
   <ol
-    class="flex items-center w-full text-sm font-medium text-center text-foreground mb-10 overflow-auto pb-10"
+    class="flex items-center justify-between w-full text-sm font-medium text-center text-foreground mb-10 overflow-auto pb-10"
   >
     @for (category of categories; track category.label; let index = $index; let
     last = $last) { @if (selectedCategory() === index+1 && !last) {
     <li
       (click)="changeCategory(index + 1)"
-      class="flex items-center shrink-0 w-fit text-primary sm:after:content-[''] after:w-[50px] after:h-1 after:border-b after:border-1 after:hidden sm:after:inline-block after:mx-2 after:border-border cursor-pointer"
+      class="flex items-center shrink-0 w-fit text-primary sm:after:content-[''] after:w-[15px] after:h-1 after:border-b after:border-1 after:hidden sm:after:inline-block after:mx-2 after:border-border cursor-pointer"
     >
       <span
-        class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-foreground shrink-0"
+        class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-foreground"
       >
         <svg
           class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5"
@@ -50,7 +48,7 @@
     } @else if (selectedCategory() !== index +1 && !last) {
     <li
       (click)="changeCategory(index + 1)"
-      class="flex shrink-0 w-fit items-center after:content-[''] after:w-[50px] after:h-1 after:border-b after:border-1 after:hidden sm:after:inline-block after:mx-2 after:border-border cursor-pointer"
+      class="flex shrink-0 w-fit items-center after:content-[''] after:w-[15px] after:h-1 after:border-b after:border-1 after:hidden sm:after:inline-block after:mx-2 after:border-border cursor-pointer"
     >
       <span
         class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-muted-foreground"

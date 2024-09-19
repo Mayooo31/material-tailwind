@@ -15,7 +15,6 @@ export class SidebarComponent {
   private sidebarService = inject(SidebarService);
   isOpenSidebar = this.sidebarService.isOpenSidebar;
   collapseSidebar = this.sidebarService.collapseSidebar;
-  
 
   constructor() {
     this.sidebarService.checkScreenWidth();
@@ -31,10 +30,14 @@ export class SidebarComponent {
   }
 
   @HostListener('mouseenter') onMouseEnter() {
+    // if (this.collapseSidebar()) {
     this.sidebarService.openSidebar();
+    // }
   }
 
   @HostListener('mouseleave') onMouseLeave() {
+    // if (this.collapseSidebar() || window.innerWidth < 600) {
     this.sidebarService.closeSidebar();
+    // }
   }
 }

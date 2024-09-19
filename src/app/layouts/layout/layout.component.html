@@ -4,9 +4,8 @@
   <div
     class="min-h-[calc(100vh-100px)] mt-[80px] lg:mt-[100px] transition-all duration-300 px-3 py-5 md:p-5"
     [ngClass]="{
-      '2xl:ml-[330px]': isOpenSidebar(),
-      '2xl:ml-14': !isOpenSidebar(),
-      'ml-24 lg:ml-20': screenWidth() > 600
+      '2xl:ml-[320px]': isOpenSidebar(),
+      'ml-[85px] lg:ml-20 lg:max-w-[1300px] lg:place-self-center lg:w-[calc(100vw-82px)]': collapseSidebar(),
     }"
   >
     <router-outlet />

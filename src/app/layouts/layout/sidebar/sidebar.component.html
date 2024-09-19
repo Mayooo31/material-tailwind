@@ -1,5 +1,5 @@
 <div
-  class="fixed left-5 top-[100px] flex h-[calc(100vh-110px)] w-[20rem] flex-col rounded-xl bg-clip-border shadow-custom lg:top-0 lg:h-screen lg:left-0 transition-all duration-300 bg-background text-foreground z-30 p-[6px] overflow-hidden"
+  class="fixed left-3 md:left-5 top-[100px] flex h-[calc(100vh-110px)] w-[20rem] flex-col rounded-xl bg-clip-border shadow-custom lg:top-0 lg:h-screen lg:left-0 transition-all duration-300 bg-background text-foreground z-30 p-[6px] overflow-hidden"
   [ngClass]="{
     'translate-x-0': isOpenSidebar(),
     '-translate-x-[120%]': !isOpenSidebar() && !collapseSidebar(),
@@ -12,7 +12,7 @@
     [ngClass]="{
       '!opacity-0': !isOpenSidebar() && collapseSidebar()
     }"
-    class="hidden cst:inline-flex ml-auto mt-2 mr-2 items-center cursor-pointer opacity-75"
+    class="hidden cst:inline-flex ml-auto mt-4 mr-3 items-center cursor-pointer opacity-75"
   >
     <input
       type="checkbox"

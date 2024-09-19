@@ -1,4 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject, signal } from '@angular/core';
+import { SidebarService } from '../../../../../core/services/sidebar.service';
 
 const data = [
   {
@@ -36,10 +38,14 @@ const data = [
 @Component({
   selector: 'app-site-support-information',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './site-support-information.component.html',
   styleUrl: './site-support-information.component.scss',
 })
 export class SiteSupportInformationComponent {
+  private sidebarService = inject(SidebarService);
+  isOpenSidebar = this.sidebarService.isOpenSidebar;
+  collapseSidebar = this.sidebarService.collapseSidebar;
+
   data = signal(data);
 }
