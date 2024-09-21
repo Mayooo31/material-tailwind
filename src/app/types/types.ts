@@ -7,5 +7,5 @@ export interface SidebarItem {
 
 interface SidebarItemChildren {
   label: string;
-  route?: string;
+  route: string;
 }

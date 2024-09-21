@@ -50,7 +50,7 @@ export class SidebarComponent {
   }
 
   @HostListener('mouseleave') onMouseLeave() {
-    if (this.collapseSidebar() || window.innerWidth < 600) {
+    if (this.collapseSidebar() || window.innerWidth < 1320) {
       this.sidebarService.closeSidebar();
     }
   }
