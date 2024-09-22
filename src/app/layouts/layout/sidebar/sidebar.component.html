@@ -11,7 +11,7 @@
     [ngClass]="{
       '!opacity-0': !isOpenSidebar() && collapseSidebar()
     }"
-    class="hidden cst:inline-flex ml-auto mt-4 mr-3 items-center cursor-pointer opacity-75"
+    class="hidden cst:inline-flex ml-auto mt-4 mr-3 items-center cursor-pointer opacity-75 transition-all duration-200"
   >
     <input
       type="checkbox"
@@ -28,13 +28,16 @@
     <span class="material-symbols-outlined text-primary mr-[6px]">
       insert_chart
     </span>
-    @if (isOpenSidebar()|| !collapseSidebar()) {
     <h5
-      class="block font-sans text-xl antialiased leading-snug tracking-normal text-primary font-bold overflow-hidden"
+      [ngClass]="
+        isOpenSidebar() || !collapseSidebar()
+          ? 'opacity-100'
+          : 'opacity-0 appearance-none'
+      "
+      class="block font-sans text-xl antialiased leading-snug tracking-normal text-primary font-bold overflow-hidden transition-all duration-300"
     >
       Budget Developer
     </h5>
-    }
   </div>
   <nav
     class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal overflow-auto"
@@ -53,8 +56,12 @@
           <div class="grid mr-4 place-items-center">
             <span class="material-symbols-outlined"> {{ item.icon }} </span>
           </div>
-          @if (isOpenSidebar()|| !collapseSidebar()) {
           <p
+            [ngClass]="
+              isOpenSidebar() || !collapseSidebar()
+                ? 'opacity-100'
+                : 'opacity-0 appearance-none'
+            "
             class="block mr-auto font-sans antialiased leading-relaxed text-muted-foreground group-hover:text-foreground text-sm font-medium transition-all duration"
           >
             {{ item.label }}
@@ -62,16 +69,19 @@
           <span class="grid ml-4 place-items-center">
             <span
               [ngClass]="
-                collapsedItem() === item.id
+                (isOpenSidebar() || !collapseSidebar()
+                  ? 'opacity-100'
+                  : 'opacity-0 appearance-none') +
+                ' ' +
+                (collapsedItem() === item.id
                   ? 'rotate-180 !text-foreground'
-                  : 'rotate-0'
+                  : 'rotate-0')
               "
-              class="material-symbols-outlined transition-all duration-300"
+              class="material-symbols-outlined transition-transform duration-300"
             >
               keyboard_arrow_up
             </span>
           </span>
-          }
         </button>
       </div>
       @if (item.children) {
@@ -111,9 +121,15 @@
                 </span>
                 }
               </div>
-              @if (isOpenSidebar()|| !collapseSidebar()) {
-              {{ children.label }}
-              }
+              <span
+                [ngClass]="
+                  isOpenSidebar() || !collapseSidebar()
+                    ? 'opacity-100'
+                    : 'opacity-0 appearance-none'
+                "
+                class="transition-all duration-300"
+                >{{ children.label }}</span
+              >
             </a>
             }
           </nav>

@@ -22,12 +22,10 @@ const sidebarItems: SidebarItem[] = [
       { label: 'Job Codes', route: '/job-codes' },
       {
         label: 'Salary Costs',
-
-        route: 'dashboard/salary-cost',
+        route: '/dashboard/salary-cost',
       },
       {
         label: 'Chart of Account',
-
         route: '/chart-of-account',
       },
     ],
@@ -39,6 +37,37 @@ const sidebarItems: SidebarItem[] = [
     children: [
       { label: 'Users', route: '/users' },
       { label: 'Passwords', route: '/passwords' },
+    ],
+  },
+  {
+    id: 4,
+    label: 'Reports',
+    icon: 'assessment',
+    children: [
+      { label: 'Sales Reports', route: '/reports/sales' },
+      { label: 'Expense Reports', route: '/reports/expenses' },
+      { label: 'Profit & Loss', route: '/reports/profit-loss' },
+      { label: 'Annual Summary', route: '/reports/annual-summary' },
+    ],
+  },
+  {
+    id: 5,
+    label: 'Settings',
+    icon: 'settings',
+    children: [
+      { label: 'Profile Settings', route: '/settings/profile' },
+      { label: 'Security Settings', route: '/settings/security' },
+      { label: 'Notification Settings', route: '/settings/notifications' },
+    ],
+  },
+  {
+    id: 6,
+    label: 'Analytics',
+    icon: 'insights',
+    children: [
+      { label: 'Dashboard Analytics', route: '/analytics/dashboard' },
+      { label: 'Traffic Insights', route: '/analytics/traffic' },
+      { label: 'User Behavior', route: '/analytics/user-behavior' },
     ],
   },
 ];

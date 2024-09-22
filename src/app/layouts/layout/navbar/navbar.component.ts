@@ -16,7 +16,6 @@ import { RouterLink } from '@angular/router';
 export class NavbarComponent {
   themeService = inject(ThemeService);
   sidebarService = inject(SidebarService);
-  isOpenSettings = signal<boolean>(false);
   isOpenSidebar = this.sidebarService.isOpenSidebar;
 
   themeColors = [
@@ -51,10 +50,6 @@ export class NavbarComponent {
   ];
 
   themeMode = ['light', 'dark'];
-
-  toggleSettings() {
-    this.isOpenSettings.update((prevState) => !prevState);
-  }
 
   toggleThemeMode() {
     this.themeService.theme.update((theme) => {
